@@ -1,0 +1,30 @@
+.alignleft {
+    float: left;
+  }
+  .alignright {
+    float: right;
+  }
+  .aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .relative {
+    position: relative;
+  }
+  img.alignright {
+    margin: 8px 0 15px 15px;
+  }
+  img.alignnone {
+    display: block;
+    margin: 15px 15px 15px 0;
+  }
+  img.alignleft {
+    margin: 8px 15px 15px 0;
+  }
+  img.aligncenter {
+    display: block;
+    margin: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }

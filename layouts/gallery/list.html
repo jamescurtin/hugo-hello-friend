@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main>
+
+    <div class="container">
+        {{ $cols := 3}}
+        {{ range $key, $value := .Pages}}
+        {{ if modBool $key $cols }}
+        <div class="row">
+            {{end}}
+            <div class="col-sm photoContainer"><a href="/{{ .File.Dir }}">
+                    <img border="0" alt="{{ .Title }}" src="/assets/images/{{ .Params.Front }}" width="300">
+                    {{ .Title }}
+                </a></div>
+            {{ if modBool (add $key 1) $cols }}
+        </div>
+        {{end}}
+        {{end}}
+    </div>
+</main>
+{{ end }}

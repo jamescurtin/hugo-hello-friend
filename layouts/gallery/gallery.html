@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<div id="captions">
+    {{ range index .Site.Data .Page.Params.images }}
+    <div id="{{ .image_id }}" style="display:none">
+        {{ .subHtml | safeHTML }}
+    </div>
+    {{ end }}
+</div>
+
+<script>console.log({{ .Page.Params.images }})</script>
+<div id="lightgallery" class="container">
+    {{ $cols := 4}}
+    {{ range $key, $value := index .Site.Data .Page.Params.images }}
+    {{ if modBool $key $cols }}
+    <div class="row">
+        {{end}}
+        <div class="col-sm">
+            <a href="{{ .src }}" data-sub-html="#{{ .image_id }}" class="galleryitem">
+                <img src="{{ .thumb }}" />
+            </a>
+        </div>
+        {{ if modBool (add $key 1) $cols }}
+    </div>
+    {{end}}
+    {{ end }}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#lightgallery").lightGallery({
+            thumbnail: true,
+            selector: '.galleryitem',
+            mode: 'lg-lollipop',
+        });
+    });
+</script>
+{{ end }}
