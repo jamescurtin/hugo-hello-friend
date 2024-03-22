@@ -13,7 +13,7 @@
     "not dead"
   ],
   "devDependencies": {
-    "bulma": "^0.9.4",
+    "bulma": "^1.0.0",
     "node-sass": "^9.0.0"
   }
 }
